@@ -18,9 +18,7 @@
 
 <body>
 
-    <audio autoplay>
-        <source src="write.mp3" type="audio/mp3"/>
-    </audio>
+
 
     <!-- gambar dan isi teks -->
     <div class="all" id="blur">
@@ -98,6 +96,13 @@
         });
  
       });
+    </script>
+    <script>
+        var musik=new Audio();
+            musik.src=write.mp3;
+            musik.loop=false;
+            musik.play();
+        
     </script>
 
 </body>
