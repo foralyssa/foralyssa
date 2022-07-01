@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <audio autoplay>
+        <source src="write.mp3" type="audio/mp3"/>
+    </audio>
+
+    <!-- gambar dan isi teks -->
+    <div class="all" id="blur">
+        <img class="img shadow" src="bony.jpg" width="200px" height="200px" alt="">
+        <h1>Dear Alyssa</h1>
+        <div class="box shadow justify-content-center">
+            <p id="type-writer" data-text="Hello 👋, How about your day?. I just wanna ask, Are u Okey?. I hope everything is fine. Need Motivation? 👇"></p>
+            <a href="#" id="btn" class="btn btn-primary build"  onclick="toggle();audio.play();">Click Here</a>
+        </div>
+    </div>
+    <!-- Akhir gambar dan isi teks -->
+    
+
+    <!-- Popup -->
+    <div id="popup">
+        <div class="popupimg"></div>
+        <img src="dzakwanedit2.jpg" class="shadow" width="200px" alt="">
+        <p>fotonya agak prik 😅, tpi gpp kwkwkwk. </p>
+        <a href="#" class="btn btn-primary" onclick="toggle()">close</a>
+    </div>
+    <!-- Akhir Pop up -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        var typeWriter = document.getElementById('type-writer');
+        var dataText = typeWriter.getAttribute('data-text');
+
+        var count = 0;
+        var dataTextLength = dataText.length;
+
+        var setText = function () {
+        setTimeout(function () {
+            typeWriter.textContent = typeWriter.textContent + dataText.charAt(count);
+            count++;
+            if (count <= dataTextLength) {
+            setText();
+            }
+        }, 80);
+        }
+
+        window.onload = () => {
+        setText()
+        }
+    </script>
+
+    <script>   
+        function toggle() {
+        var blur = document.getElementById("blur");
+        blur.classList.toggle("active");
+        var popup = document.getElementById("popup");
+        popup.classList.toggle("active");
+        }
+    </script>
+
+    <script>
+        const audio = new Audio();
+        audio.src = "guitar.mp3";
+    </script>
+    <script>
+        const jsConfetti = new JSConfetti();
+         document.querySelector(".build").addEventListener("click", async () => {
+        await jsConfetti.addConfetti({
+ 
+          confettiColors: [
+            "#ff0a54",
+            "#ff477e",
+            "#ff7096",
+            "#ff85a1",
+            "#fbb1bd",
+            "#f9bec7",
+          ],
+        });
+ 
+      });
+    </script>
+
+</body>
+
+</html>
